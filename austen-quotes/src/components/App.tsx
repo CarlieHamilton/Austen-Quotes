@@ -7,6 +7,7 @@ import TitleSelection from './TitleSelection/TitleSelection';
 function App() {
   const [quote, setQuote] = useState("");
   const [bookTitle, setBookTitle] = useState(null);
+  const [hasSelectedTitle, setHasSelectedTitle] = useState<boolean>(false);
 
   const generateQuote = () => {
     axios.get('https://jane-austen-quote-api.herokuapp.com/random-quote')
@@ -22,7 +23,7 @@ function App() {
       </header>
       {/* image here */}
       <p>
-        <TitleSelection setQuote={setQuote} />
+        <TitleSelection setQuote={setQuote} setHasSelectedTitle={setHasSelectedTitle} hasSelectedTitle={hasSelectedTitle} />
       </p>
       <Button generateQuote={generateQuote} />
       <p>
